@@ -1,26 +1,109 @@
 .main {
   display: flex;
-  flex-direction: row;
-  width: 100vw;
-  height: 100vh;
-}
-
-.left {
-  min-width: 45%;
-  height: 100%;
-  background-image: url("../../../public/landingPage.jpg");
-  background-size: cover;
-}
-
-.right {
-  width: 55%;
-  display: flex;
-  align-items: center;
+  flex-direction: column;
+  background: #06283d;
   justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 
-.right_heading {
+.container {
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.headings {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.heading1 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 4rem;
+  color: #dff6ff;
+}
+
+.heading2 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
   font-size: 3rem;
-  font-family: "Poppins", sans-serif;
-  color: rgb(47, 171, 253);
+  color: #ffffff;
+}
+
+.heading3 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #b6b8c3;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form_group label {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 26px;
+  color: #ffffff;
+}
+
+.form_group input {
+  width: 100%;
+  height: 48px;
+  background: #ffffff;
+  border: 1px solid #b6b8c3;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 0 16px;
+  font-size: 1rem;
+}
+
+.form_group input:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+hr {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  min-width: 100%;
+  background-color: #1363df;
+  font-family: "Poppins";
+  color: white;
 }

@@ -1,10 +1,9 @@
 .main {
   display: flex;
   flex-direction: column;
+  background-color: #06283d;
   width: 100vw;
   height: 100vh;
-  background-color: #06283d;
-  overflow: hidden;
 }
 
 .navbar {
@@ -20,7 +19,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 5.8rem;
+  font-size: 5.2rem;
   color: #dff6ff;
   padding-top: 2%;
   padding-left: 5%;
@@ -39,7 +38,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   text-decoration: none;
   color: #dff6ff;
 }
@@ -75,8 +74,9 @@
   font-weight: 400;
   font-size: 1.1rem;
   line-height: 1.5rem;
-  color: rgb(205, 205, 205);
+  color: rgb(217, 215, 215);
   width: 60%;
+  margin-bottom: 3%;
 }
 
 .content__right {
@@ -90,4 +90,21 @@
 
 .highlight_text {
   color: #47b5ff;
+}
+
+.button_shop_now {
+  width: 30%;
+}
+
+.button_shop_now button {
+  background-color: #1363df;
+  color: white;
+  width: 100%;
+  padding: 10%;
+  border-radius: 0.8rem;
+  /* font-family: "Poppins"; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 20px;
 }

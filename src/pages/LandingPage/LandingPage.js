@@ -1,10 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
-import Button from "../../components/ui/button/Button";
 import styles from "./LandingPage.module.css";
 const LandingPage = () => {
   const navigate = useNavigate();
   const navigateToSignup = () => {
-    navigate("/signup");
+    navigate("/signup", { replace: false });
   };
   return (
     <div className={styles.main}>
@@ -27,11 +26,13 @@ const LandingPage = () => {
             And <span className={styles.highlight_text}>Sell</span>
           </div>
           <div className={styles.content__left_description}>
-            Find what you're looking for and connect with local buyers and
-            sellers on our platform. From home goods to vehicles, we have
-            something for everyone. Start shopping and selling locally today!
+            Find and connect with local buyers and sellers on our platform. From
+            home goods to vehicles, we have something for everyone. Start
+            shopping and selling locally today!
           </div>
-          <Button text="Sign Up" onClick={navigateToSignup}></Button>
+          <div className={styles.button_shop_now}>
+            <button onClick={navigateToSignup}>Shop Now</button>
+          </div>
         </div>
         <div className={styles.content__right}>
           <img src="/bg.svg"></img>
