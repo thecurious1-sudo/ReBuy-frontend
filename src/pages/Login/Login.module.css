@@ -1,0 +1,26 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+}
+
+.left {
+  min-width: 45%;
+  height: 100%;
+  background-image: url("../../../public/landingPage.jpg");
+  background-size: cover;
+}
+
+.right {
+  width: 55%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right_heading {
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+  color: rgb(47, 171, 253);
+}
