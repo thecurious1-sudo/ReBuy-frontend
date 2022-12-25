@@ -5,7 +5,7 @@ const useInputField = (initialValue) => {
   const onChange = (e) => {
     setValue(e.target.value);
   };
-  return { value, onChange };
+  return { value, onChange, setValue };
 };
 
 export default useInputField;

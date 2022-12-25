@@ -23,7 +23,7 @@ const useHttp = () => {
     setLoading(true);
     try {
       const response = await axios.post(configs.url, configs.body);
-      setData(response);
+      setData(response.data);
     } catch (error) {
       setError(error.message);
     }

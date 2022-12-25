@@ -1,16 +1,52 @@
 import { Link } from "react-router-dom";
 import styles from "./Signup.module.css";
 import useInputField from "../../hooks/input-field";
+import useHttp from "../../hooks/use-http";
+import { URL_SIGNUP } from "../../utils/urls";
+import { useEffect } from "react";
+import Loader from "../../components/Loader/Loader";
+import { saveUserInfoLocal } from "../../utils/authenticate";
+import { useNavigate } from "react-router-dom";
+import useCheckAuthLocal from "../../hooks/check-local-auth";
+
 const Signup = () => {
+  const httpRequest = useHttp();
+  const navigate = useNavigate();
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(
-      name.value,
-      email.value,
-      password.value,
-      confirm_password.value
-    );
+    if (password.value !== confirm_password.value) {
+      alert("Passwords do not match");
+      return;
+    }
+    httpRequest.post({
+      url: URL_SIGNUP,
+      body: {
+        name: name.value,
+        email: email.value,
+        password: password.value,
+      },
+    });
   };
+  const checkAuthLocal = useCheckAuthLocal();
+  useEffect(() => {
+    checkAuthLocal.checkAuth({ redirectToHome: true });
+  }, []);
+  useEffect(() => {
+    if (httpRequest.data) {
+      if (httpRequest.data.status === "ok") {
+        // console.log(httpRequest.data);
+        alert("User created successfully");
+        saveUserInfoLocal(httpRequest.data);
+        name.setValue("");
+        email.setValue("");
+        password.setValue("");
+        confirm_password.setValue("");
+        navigate("/login", { replace: true });
+      } else {
+        alert(httpRequest.data.message);
+      }
+    }
+  }, [httpRequest.data]);
   const name = useInputField("");
   const email = useInputField("");
   const password = useInputField("");
@@ -18,6 +54,7 @@ const Signup = () => {
 
   return (
     <div className={styles.main}>
+      {httpRequest.loading && <Loader />}
       <div className={styles.container}>
         <div className={styles.headings}>
           <div className={styles.heading1}>ReBuy</div>

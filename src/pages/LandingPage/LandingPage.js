@@ -1,10 +1,13 @@
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import useCheckAuthLocal from "../../hooks/check-local-auth";
 import styles from "./LandingPage.module.css";
 const LandingPage = () => {
   const navigate = useNavigate();
   const navigateToSignup = () => {
     navigate("/signup", { replace: false });
   };
+
   return (
     <div className={styles.main}>
       <nav className={styles.navbar}>
