@@ -19,7 +19,7 @@ const Products = () => {
     if (httpRequest.data) {
       if (httpRequest.data.status === "ok") {
         setProducts(httpRequest.data.data);
-        // console.log(httpRequest.data.data);
+        console.log(httpRequest.data.data);
       } else {
         alert(httpRequest.data.message);
       }

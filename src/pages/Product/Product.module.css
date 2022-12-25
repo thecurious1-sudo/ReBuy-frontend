@@ -1,0 +1,50 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px 20px;
+}
+.container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 3% 5%;
+  gap: 40px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: rgb(133 133 133 / 35%);
+}
+
+.image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+  border-bottom: 2px solid white;
+}
+
+.image img {
+  width: 50%;
+  height: 50%;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 32px;
+  color: azure;
+}
+
+.basic_info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 1.9rem;
+  width: 90%;
+  border: 2px solid black;
+  padding: 12px 12px;
+}

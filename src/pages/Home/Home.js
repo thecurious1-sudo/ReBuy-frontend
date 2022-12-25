@@ -5,6 +5,7 @@ import useCheckAuthLocal from "../../hooks/check-local-auth";
 import Products from "../../components/Products/Products";
 import { Routes, Route } from "react-router-dom";
 import Product from "../Product/Product";
+import Sell from "../Sell/Sell";
 const Home = () => {
   const checkAuthLocal = useCheckAuthLocal();
   useEffect(() => {
@@ -16,6 +17,7 @@ const Home = () => {
       <Routes>
         <Route path="/" element={<Products />} />
         <Route path="product/:id" element={<Product />} />
+        <Route path="sell" element={<Sell />} />
       </Routes>
     </div>
   );

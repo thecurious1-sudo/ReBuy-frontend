@@ -16,7 +16,7 @@ const Navbar = () => {
       </div>
       <div className={styles.navbar__links}>
         <div className={styles.sell}>
-          <Link to="/sell" className={styles.navbar_link}>
+          <Link to="/home/sell" className={styles.navbar_link}>
             <button className={styles.sell_button}>Sell</button>
           </Link>
         </div>
@@ -31,6 +31,9 @@ const Navbar = () => {
 
                 <li>
                   <button>My Items</button>
+                </li>
+                <li>
+                  <button>Profile</button>
                 </li>
                 <li>
                   <button onClick={logout}>Logout</button>

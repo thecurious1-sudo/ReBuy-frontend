@@ -56,7 +56,7 @@
   font-size: 0; /* add font-size: 0; to remove the white space between inline-block elements */
 }
 .profile_menu {
-  position: fixed;
+  position: absolute;
   visibility: hidden;
   padding: 4px;
   margin: 0;
