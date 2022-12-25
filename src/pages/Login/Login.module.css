@@ -92,7 +92,7 @@ hr {
   padding: 0;
 }
 
-button {
+.login_button {
   border: none;
   border-radius: 4px;
   cursor: pointer;

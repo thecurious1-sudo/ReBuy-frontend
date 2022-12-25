@@ -93,7 +93,7 @@ hr {
   padding: 0;
 }
 
-button {
+.signup_button {
   border: none;
   border-radius: 4px;
   cursor: pointer;

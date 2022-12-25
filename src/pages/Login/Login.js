@@ -18,7 +18,6 @@ const Login = () => {
   const password = useInputField("");
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(email.value, password.value);
     httpRequest.post({
       url: URL_LOGIN,
       body: {
@@ -73,7 +72,7 @@ const Login = () => {
             />
           </div>
           <div className={styles.form_button}>
-            <button>Login</button>
+            <button className={styles.login_button}>Login</button>
           </div>
         </form>
         <div className={styles.heading3}>

@@ -12,7 +12,7 @@ const useHttp = () => {
       const response = await axios.get(configs.url, {
         params: configs.params ? configs.params : {},
       });
-      setData(response);
+      setData(response.data);
     } catch (error) {
       setError(error.message);
     }

@@ -106,7 +106,7 @@ const Signup = () => {
             </div>
           </div>
           <div className={styles.form_button}>
-            <button>Sign Up</button>
+            <button className={styles.signup_button}>Sign Up</button>
           </div>
         </form>
         <div className={styles.heading3}>
