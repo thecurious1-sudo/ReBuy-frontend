@@ -6,6 +6,7 @@ const Product = (props) => {
     <div className={styles.product}>
       <div className={styles.image}>
         <img src={"/prod_coming_soon.webp"} alt={props.name} />
+        {/* <img src={props.image} alt={props.name} /> */}
       </div>
       <div className={styles.info}>
         <div className={styles.name}>{props.name}</div>

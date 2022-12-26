@@ -18,7 +18,7 @@ const Product = () => {
   useEffect(() => {
     if (httpRequest.data) {
       if (httpRequest.data.status === "ok") {
-        console.log(httpRequest.data.data);
+        // console.log(httpRequest.data.data);
         setProductData(httpRequest.data.data);
       } else {
         alert(httpRequest.data.message);
@@ -33,17 +33,69 @@ const Product = () => {
         <div className={styles.container}>
           <div className={styles.image}>
             <img src="/prod_coming_soon.webp" alt="product" />
+            {/* <img src={productData.img} alt="product" /> */}
           </div>
           <div className={styles.details}>
-            <div className={styles.basic_info}>
-              <span>{productData.name}</span>
-              <span>{productData.description}</span>
+            <div className={styles.row1}>
+              <div className={styles.basic_info}>
+                <span className={styles.product_name}>{productData.name}</span>
+                <span className={styles.product_description}>
+                  {productData.description}
+                </span>
+                <span className={styles.time_ago}>
+                  {timeSince(new Date(productData.createdAt))} ago
+                </span>
+              </div>
+              <div className={styles.price_info}>
+                <span className={styles.product_price}>
+                  Rs. {productData.price}
+                </span>
+                {productData.user._id !==
+                  JSON.parse(localStorage.getItem("user")).id && (
+                  <button className={productData.sold ? styles.disabled : ""}>
+                    Make Offer
+                  </button>
+                )}
+                <div className={styles.status}>
+                  {productData.sold ? "Sold" : "Unsold"}
+                </div>
+              </div>
             </div>
-
-            <span>{productData.price}</span>
-            <span>By {productData.user.name}</span>
-            <span>{timeSince(new Date(productData.createdAt))} ago</span>
-            <span>Location: {productData.address}</span>
+            <div className={styles.row2}>
+              <div className={styles.info_group}>
+                <div className={styles.info_group_left}>
+                  <img src="/account1.png"></img>
+                </div>
+                <div className={styles.info_group_right}>
+                  <span>By</span>
+                  <span>{productData.user.name}</span>
+                </div>
+              </div>
+              <div className={styles.info_group}>
+                <div className={styles.info_group_left}>
+                  <img src="/location.png"></img>
+                </div>
+                <div className={styles.info_group_right}>
+                  <span>Location</span>
+                  <span>{productData.address}</span>
+                </div>
+              </div>
+              <div className={styles.info_group}>
+                <div className={styles.info_group_left}>
+                  <img src="/calendar.png"></img>
+                </div>
+                <div className={styles.info_group_right}>
+                  <span>On</span>
+                  <span>
+                    {new Date(productData.createdAt).getDate() +
+                      "-" +
+                      new Date(productData.createdAt).getMonth() +
+                      "-" +
+                      new Date(productData.createdAt).getFullYear()}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}

@@ -10,7 +10,8 @@
   border-radius: 4%;
   min-height: 430px;
   max-height: 430px;
-  color: rgb(238, 232, 232);
+  color: aliceblue;
+  /* background-color: #23455b; */
   /* color: hsla(195, 80%, 84%, 0.822); */
 }
 
