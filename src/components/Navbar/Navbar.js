@@ -26,7 +26,9 @@ const Navbar = () => {
             <nav className={styles.profile_menu}>
               <ul>
                 <li>
-                  <button>Orders</button>
+                  <Link to="/home/orders">
+                    <button>Orders</button>
+                  </Link>
                 </li>
 
                 <li>

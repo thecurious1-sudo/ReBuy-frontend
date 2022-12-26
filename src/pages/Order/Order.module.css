@@ -1,0 +1,154 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px 20px;
+}
+.container {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  padding: 3% 5%;
+  gap: 40px;
+  /* border: 2px solid white; */
+  border-radius: 10px;
+  /* background-color: rgb(133 133 133 / 35%); */
+}
+
+.image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+  border-bottom: 2px solid white;
+}
+
+.image img {
+  width: 40%;
+  height: 40%;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 32px;
+  color: azure;
+}
+
+.row1 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.basic_info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 1.9rem;
+  width: 90%;
+  /* border: 2px solid black; */
+  padding: 12px 12px;
+  background-color: #18415b;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.product_name {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.product_description {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #9ccdec;
+}
+
+.time_ago {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.price_info {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.9rem;
+  width: 90%;
+  justify-content: center;
+  gap: 20px;
+  /* border: 2px solid black; */
+  padding: 12px 12px;
+  background-color: #18415b;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  position: relative;
+}
+.product_price {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+.price_info button {
+  width: 100%;
+  height: 50px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: #f5c518;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.row2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 4px 16px;
+  font-size: 1.9rem;
+  width: 97%;
+  padding: 12px 12px;
+  background-color: #18415b;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+}
+
+.info_group {
+  display: flex;
+  gap: 8px;
+}
+
+.info_group_right {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
+.status {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  padding: 4%;
+  border-radius: 16px;
+  background-color: green;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.disabled {
+  background-color: #716e6e !important;
+  opacity: 0.4;
+  cursor: not-allowed !important;
+  color: white;
+}
+
+.purchase_date {
+  font-size: 1.2rem;
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+}

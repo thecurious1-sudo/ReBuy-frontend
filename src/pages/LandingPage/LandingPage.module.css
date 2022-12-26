@@ -101,10 +101,12 @@
   color: white;
   width: 100%;
   padding: 10%;
+  border: none;
   border-radius: 0.8rem;
   /* font-family: "Poppins"; */
   font-style: normal;
   font-weight: 700;
   font-size: 1.4rem;
   line-height: 20px;
+  cursor: pointer;
 }
