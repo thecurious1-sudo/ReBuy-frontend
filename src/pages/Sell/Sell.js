@@ -41,13 +41,16 @@ const Sell = () => {
 
   useEffect(() => {
     if (httpRequest.data) {
+      // console.log(httpRequest.data);
       if (httpRequest.data.status === "ok") {
         alert("Product created successfully");
         name.setValue("");
         description.setValue("");
         price.setValue(null);
         address.setValue("");
-        navigate("/home", { replace: true });
+        navigate(`/home/myItems/${httpRequest.data.data._id}`, {
+          replace: true,
+        });
       } else {
         alert(httpRequest.data.message);
       }

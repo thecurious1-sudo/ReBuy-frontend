@@ -32,10 +32,9 @@ const Navbar = () => {
                 </li>
 
                 <li>
-                  <button>My Items</button>
-                </li>
-                <li>
-                  <button>Profile</button>
+                  <Link to="/home/myItems">
+                    <button>My Items</button>
+                  </Link>
                 </li>
                 <li>
                   <button onClick={logout}>Logout</button>

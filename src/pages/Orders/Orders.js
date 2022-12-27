@@ -17,7 +17,7 @@ const Orders = () => {
   }, []);
   useEffect(() => {
     if (httpRequest.data) {
-      console.log(httpRequest.data);
+      // console.log(httpRequest.data);
       if (httpRequest.data.status === "ok") {
         setOrders(httpRequest.data.data);
       } else {
@@ -28,6 +28,9 @@ const Orders = () => {
 
   return (
     <div className={styles.main}>
+      <div className={styles.heading}>
+        <h1>Your Orders</h1>
+      </div>
       {httpRequest.loading && <Loader />}
       {orders.length === 0 && <h1>No orders yet</h1>}
       {orders.map((order) => {
@@ -36,6 +39,7 @@ const Orders = () => {
           <Order
             key={order._id}
             id={order._id}
+            createdAt={order.createdAt}
             name={product.name}
             price={product.price}
             description={product.description}

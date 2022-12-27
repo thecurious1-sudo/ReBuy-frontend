@@ -44,7 +44,7 @@ const Product = () => {
   };
   useEffect(() => {
     if (httpRequest2.data) {
-      console.log(httpRequest2.data);
+      // console.log(httpRequest2.data);
       if (httpRequest2.data.status === "ok") {
         alert("Offer made successfully");
         // window.location.reload();
@@ -72,7 +72,7 @@ const Product = () => {
                   {productData.description}
                 </span>
                 <span className={styles.time_ago}>
-                  {timeSince(new Date(productData.createdAt))} ago
+                  Posted {timeSince(new Date(productData.createdAt))} ago
                 </span>
               </div>
               <div className={styles.price_info}>
@@ -89,7 +89,18 @@ const Product = () => {
                     Make Offer
                   </button>
                 )}
-                <div className={styles.status}>
+                <div
+                  // className={
+                  //   styles.status + " " + !productData.sold
+                  //     ? styles["status-unsold"]
+                  //     : ""
+                  // }
+                  className={
+                    productData.sold
+                      ? styles["status-sold"]
+                      : styles["status-unsold"]
+                  }
+                >
                   {productData.sold ? "Sold" : "Unsold"}
                 </div>
               </div>
@@ -100,7 +111,7 @@ const Product = () => {
                   <img src="/account1.png"></img>
                 </div>
                 <div className={styles.info_group_right}>
-                  <span>By</span>
+                  <span>Posted By</span>
                   <span>{productData.user.name}</span>
                 </div>
               </div>
@@ -124,7 +135,11 @@ const Product = () => {
                       "-" +
                       new Date(productData.createdAt).getMonth() +
                       "-" +
-                      new Date(productData.createdAt).getFullYear()}
+                      new Date(productData.createdAt).getFullYear() +
+                      " at " +
+                      new Date(productData.createdAt).getHours() +
+                      ":" +
+                      new Date(productData.createdAt).getMinutes()}
                   </span>
                 </div>
               </div>

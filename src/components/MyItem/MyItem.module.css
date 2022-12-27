@@ -1,4 +1,4 @@
-.order {
+.myItem {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -8,7 +8,6 @@
   transition: all 0.3s ease-out;
   width: 25%;
   border-radius: 4%;
-  min-height: 430px;
   height: 455px;
   color: aliceblue;
   margin-top: 4%;
@@ -89,9 +88,9 @@
   border: none;
 }
 .time {
+  position: absolute;
   font-size: 1.2rem;
   font-weight: 600;
-  position: absolute;
   right: 5%;
   bottom: 3%;
 }

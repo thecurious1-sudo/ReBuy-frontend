@@ -19,6 +19,9 @@ const Order = (props) => {
             <button>View Order Details</button>
           </div>
         </Link>
+        <div className={styles.time}>
+          <span>{timeSince(new Date(props.createdAt))} ago</span>
+        </div>
       </div>
     </div>
   );

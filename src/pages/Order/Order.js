@@ -22,7 +22,7 @@ const Order = (props) => {
     // console.log(httpRequest.data);
     if (httpRequest.data) {
       if (httpRequest.data.status === "ok") {
-        console.log(httpRequest.data.data);
+        // console.log(httpRequest.data.data);
         setOrderData(httpRequest.data.data);
       } else {
         alert(httpRequest.data.message);
@@ -59,11 +59,15 @@ const Order = (props) => {
                 <span className={styles.purchase_date}>
                   On &nbsp;
                   {"" +
-                    new Date(orderData.product.createdAt).getDate() +
+                    new Date(orderData.createdAt).getDate() +
                     "-" +
-                    new Date(orderData.product.createdAt).getMonth() +
+                    new Date(orderData.createdAt).getMonth() +
                     "-" +
-                    new Date(orderData.product.createdAt).getFullYear()}
+                    new Date(orderData.createdAt).getFullYear() +
+                    " at " +
+                    new Date(orderData.createdAt).getHours() +
+                    ":" +
+                    new Date(orderData.createdAt).getMinutes()}
                 </span>
                 {/* <span className={styles.product_price}>By You</span> */}
                 <div className={styles.status}>Owned</div>
@@ -76,7 +80,7 @@ const Order = (props) => {
                   <img src="/account1.png"></img>
                 </div>
                 <div className={styles.info_group_right}>
-                  <span>By</span>
+                  <span>Posted By</span>
                   <span>{orderData.product.user.name}</span>
                 </div>
               </div>
@@ -100,7 +104,11 @@ const Order = (props) => {
                       "-" +
                       new Date(orderData.product.createdAt).getMonth() +
                       "-" +
-                      new Date(orderData.product.createdAt).getFullYear()}
+                      new Date(orderData.product.createdAt).getFullYear() +
+                      " at " +
+                      new Date(orderData.product.createdAt).getHours() +
+                      ":" +
+                      new Date(orderData.product.createdAt).getMinutes()}
                   </span>
                 </div>
               </div>

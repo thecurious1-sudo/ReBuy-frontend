@@ -134,9 +134,10 @@
   right: -12px;
   padding: 4%;
   border-radius: 16px;
-  background-color: #716e6e;
+  background-color: green;
   font-size: 1rem;
   font-weight: 600;
+  color: white;
 }
 
 .status-unsold {
@@ -148,7 +149,7 @@
   background-color: #716e6e;
   font-size: 1rem;
   font-weight: 600;
-  background-color: green;
+  color: white;
 }
 
 .disabled {
@@ -156,4 +157,11 @@
   opacity: 0.4;
   cursor: not-allowed !important;
   color: white;
+}
+
+.purchase_date {
+  font-size: 1.2rem;
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
 }

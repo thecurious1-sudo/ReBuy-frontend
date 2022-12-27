@@ -19,7 +19,7 @@ const Products = () => {
     if (httpRequest.data) {
       if (httpRequest.data.status === "ok") {
         setProducts(httpRequest.data.data);
-        console.log(httpRequest.data.data);
+        // console.log(httpRequest.data.data);
       } else {
         alert(httpRequest.data.message);
       }
@@ -27,23 +27,29 @@ const Products = () => {
   }, [httpRequest.data]);
 
   return (
-    <div className={styles.main}>
-      {httpRequest.loading && <Loader />}
-      {products.map((product) => {
-        return (
-          <Product
-            key={product._id}
-            id={product._id}
-            name={product.name}
-            price={product.price}
-            description={product.description}
-            image={product.img}
-            user={product.user}
-            createdAt={product.createdAt}
-          />
-        );
-      })}
-    </div>
+    <>
+      <div className={styles.main}>
+        <div className={styles.heading}>
+          <h1>Products</h1>
+        </div>
+        {httpRequest.loading && <Loader />}
+        {products.length === 0 && <h1>No products to show :(</h1>}
+        {products.map((product) => {
+          return (
+            <Product
+              key={product._id}
+              id={product._id}
+              name={product.name}
+              price={product.price}
+              description={product.description}
+              image={product.img}
+              user={product.user}
+              createdAt={product.createdAt}
+            />
+          );
+        })}
+      </div>
+    </>
   );
 };
 
