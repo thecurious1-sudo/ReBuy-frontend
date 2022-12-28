@@ -7,6 +7,7 @@ import useHttp from "../../hooks/use-http";
 import { URL_LOGIN } from "../../utils/urls";
 import { saveUserInfoLocal } from "../../utils/authenticate";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../components/Loader/Loader";
 const Login = () => {
   const checkAuthLocal = useCheckAuthLocal();
   const httpRequest = useHttp();
@@ -43,6 +44,7 @@ const Login = () => {
 
   return (
     <div className={styles.main}>
+      {httpRequest.loading && <Loader />}
       <div className={styles.container}>
         <div className={styles.headings}>
           <div className={styles.heading1}>ReBuy</div>

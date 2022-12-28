@@ -56,98 +56,103 @@ const Product = () => {
   }, [httpRequest2.data]);
 
   return (
-    <div className={styles.main}>
+    <>
       {httpRequest.loading && <Loader />}
-      {productData && (
-        <div className={styles.container}>
-          <div className={styles.image}>
-            <img src="/prod_coming_soon.webp" alt="product" />
-            {/* <img src={productData.img} alt="product" /> */}
-          </div>
-          <div className={styles.details}>
-            <div className={styles.row1}>
-              <div className={styles.basic_info}>
-                <span className={styles.product_name}>{productData.name}</span>
-                <span className={styles.product_description}>
-                  {productData.description}
-                </span>
-                <span className={styles.time_ago}>
-                  Posted {timeSince(new Date(productData.createdAt))} ago
-                </span>
-              </div>
-              <div className={styles.price_info}>
-                <span className={styles.product_price}>
-                  Rs. {productData.price}
-                </span>
-                {productData.user._id !==
-                  JSON.parse(localStorage.getItem("user")).id && (
-                  <button
-                    onClick={makeOfferHandler}
-                    className={productData.sold ? styles.disabled : ""}
-                    disabled={productData.sold}
-                  >
-                    Make Offer
-                  </button>
-                )}
-                <div
-                  // className={
-                  //   styles.status + " " + !productData.sold
-                  //     ? styles["status-unsold"]
-                  //     : ""
-                  // }
-                  className={
-                    productData.sold
-                      ? styles["status-sold"]
-                      : styles["status-unsold"]
-                  }
-                >
-                  {productData.sold ? "Sold" : "Unsold"}
-                </div>
-              </div>
+      {httpRequest2.loading && <Loader />}
+      <div className={styles.main}>
+        {productData && (
+          <div className={styles.container}>
+            <div className={styles.image}>
+              <img src="/prod_coming_soon.webp" alt="product" />
+              {/* <img src={productData.img} alt="product" /> */}
             </div>
-            <div className={styles.row2}>
-              <div className={styles.info_group}>
-                <div className={styles.info_group_left}>
-                  <img src="/account1.png"></img>
-                </div>
-                <div className={styles.info_group_right}>
-                  <span>Posted By</span>
-                  <span>{productData.user.name}</span>
-                </div>
-              </div>
-              <div className={styles.info_group}>
-                <div className={styles.info_group_left}>
-                  <img src="/location.png"></img>
-                </div>
-                <div className={styles.info_group_right}>
-                  <span>Location</span>
-                  <span>{productData.address}</span>
-                </div>
-              </div>
-              <div className={styles.info_group}>
-                <div className={styles.info_group_left}>
-                  <img src="/calendar.png"></img>
-                </div>
-                <div className={styles.info_group_right}>
-                  <span>On</span>
-                  <span>
-                    {new Date(productData.createdAt).getDate() +
-                      "-" +
-                      new Date(productData.createdAt).getMonth() +
-                      "-" +
-                      new Date(productData.createdAt).getFullYear() +
-                      " at " +
-                      new Date(productData.createdAt).getHours() +
-                      ":" +
-                      new Date(productData.createdAt).getMinutes()}
+            <div className={styles.details}>
+              <div className={styles.row1}>
+                <div className={styles.basic_info}>
+                  <span className={styles.product_name}>
+                    {productData.name}
+                  </span>
+                  <span className={styles.product_description}>
+                    {productData.description}
+                  </span>
+                  <span className={styles.time_ago}>
+                    Posted {timeSince(new Date(productData.createdAt))} ago
                   </span>
                 </div>
+                <div className={styles.price_info}>
+                  <span className={styles.product_price}>
+                    Rs. {productData.price}
+                  </span>
+                  {productData.user._id !==
+                    JSON.parse(localStorage.getItem("user")).id && (
+                    <button
+                      onClick={makeOfferHandler}
+                      className={productData.sold ? styles.disabled : ""}
+                      disabled={productData.sold}
+                    >
+                      Make Offer
+                    </button>
+                  )}
+                  <div
+                    // className={
+                    //   styles.status + " " + !productData.sold
+                    //     ? styles["status-unsold"]
+                    //     : ""
+                    // }
+                    className={
+                      productData.sold
+                        ? styles["status-sold"]
+                        : styles["status-unsold"]
+                    }
+                  >
+                    {productData.sold ? "Sold" : "Unsold"}
+                  </div>
+                </div>
+              </div>
+              <div className={styles.row2}>
+                <div className={styles.info_group}>
+                  <div className={styles.info_group_left}>
+                    <img src="/account1.png"></img>
+                  </div>
+                  <div className={styles.info_group_right}>
+                    <span>Posted By</span>
+                    <span>{productData.user.name}</span>
+                  </div>
+                </div>
+                <div className={styles.info_group}>
+                  <div className={styles.info_group_left}>
+                    <img src="/location.png"></img>
+                  </div>
+                  <div className={styles.info_group_right}>
+                    <span>Location</span>
+                    <span>{productData.address}</span>
+                  </div>
+                </div>
+                <div className={styles.info_group}>
+                  <div className={styles.info_group_left}>
+                    <img src="/calendar.png"></img>
+                  </div>
+                  <div className={styles.info_group_right}>
+                    <span>On</span>
+                    <span>
+                      {new Date(productData.createdAt).getDate() +
+                        "-" +
+                        new Date(productData.createdAt).getMonth() +
+                        "-" +
+                        new Date(productData.createdAt).getFullYear() +
+                        " at " +
+                        new Date(productData.createdAt).getHours() +
+                        ":" +
+                        new Date(productData.createdAt).getMinutes()}
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };
 

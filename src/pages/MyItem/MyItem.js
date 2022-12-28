@@ -44,30 +44,31 @@ const MyItem = (props) => {
     }
   }, [httpRequest2.data]);
   return (
-    <div className={styles.main}>
+    <>
       {httpRequest.loading && <Loader />}
-      {myItemData && (
-        <div className={styles.container}>
-          <div className={styles.image}>
-            <img src="/prod_coming_soon.webp" alt="product" />
-            {/* <img src={productData.img} alt="product" /> */}
-          </div>
-          <div className={styles.details}>
-            <div className={styles.row1}>
-              <div className={styles.basic_info}>
-                <span className={styles.product_name}>{myItemData.name}</span>
-                <span className={styles.product_description}>
-                  {myItemData.description}
-                </span>
-                <span className={styles.time_ago}>
-                  Posted {timeSince(new Date(myItemData.createdAt))} ago
-                </span>
-              </div>
-              <div className={styles.price_info}>
-                <span className={styles.product_price}>
-                  Rs. {myItemData.price}
-                </span>
-                {/* <span className={styles.purchase_date}>
+      <div className={styles.main}>
+        {myItemData && (
+          <div className={styles.container}>
+            <div className={styles.image}>
+              <img src="/prod_coming_soon.webp" alt="product" />
+              {/* <img src={productData.img} alt="product" /> */}
+            </div>
+            <div className={styles.details}>
+              <div className={styles.row1}>
+                <div className={styles.basic_info}>
+                  <span className={styles.product_name}>{myItemData.name}</span>
+                  <span className={styles.product_description}>
+                    {myItemData.description}
+                  </span>
+                  <span className={styles.time_ago}>
+                    Posted {timeSince(new Date(myItemData.createdAt))} ago
+                  </span>
+                </div>
+                <div className={styles.price_info}>
+                  <span className={styles.product_price}>
+                    Rs. {myItemData.price}
+                  </span>
+                  {/* <span className={styles.purchase_date}>
                   On &nbsp;
                   {"" +
                     new Date(myItemData.createdAt).getDate() +
@@ -76,59 +77,18 @@ const MyItem = (props) => {
                     "-" +
                     new Date(myItemData.createdAt).getFullYear()}
                 </span> */}
-                {/* <span className={styles.product_price}>By You</span> */}
-                <div
-                  className={
-                    myItemData.sold
-                      ? styles["status-sold"]
-                      : styles["status-unsold"]
-                  }
-                >
-                  {myItemData.sold ? "Sold" : "Unsold"}
+                  {/* <span className={styles.product_price}>By You</span> */}
+                  <div
+                    className={
+                      myItemData.sold
+                        ? styles["status-sold"]
+                        : styles["status-unsold"]
+                    }
+                  >
+                    {myItemData.sold ? "Sold" : "Unsold"}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className={styles.row2}>
-              {/* <div className={styles.info_group}>Product</div> */}
-              <div className={styles.info_group}>
-                <div className={styles.info_group_left}>
-                  <img src="/account1.png"></img>
-                </div>
-                <div className={styles.info_group_right}>
-                  <span>Posted By</span>
-                  <span>You</span>
-                </div>
-              </div>
-              <div className={styles.info_group}>
-                <div className={styles.info_group_left}>
-                  <img src="/location.png"></img>
-                </div>
-                <div className={styles.info_group_right}>
-                  <span>Location</span>
-                  <span>{myItemData.address}</span>
-                </div>
-              </div>
-              <div className={styles.info_group}>
-                <div className={styles.info_group_left}>
-                  <img src="/calendar.png"></img>
-                </div>
-                <div className={styles.info_group_right}>
-                  <span>On</span>
-                  <span>
-                    {new Date(myItemData.createdAt).getDate() +
-                      "-" +
-                      new Date(myItemData.createdAt).getMonth() +
-                      "-" +
-                      new Date(myItemData.createdAt).getFullYear() +
-                      " at " +
-                      new Date(myItemData.createdAt).getHours() +
-                      ":" +
-                      new Date(myItemData.createdAt).getMinutes()}
-                  </span>
-                </div>
-              </div>
-            </div>
-            {orderDetails && (
               <div className={styles.row2}>
                 {/* <div className={styles.info_group}>Product</div> */}
                 <div className={styles.info_group}>
@@ -136,8 +96,8 @@ const MyItem = (props) => {
                     <img src="/account1.png"></img>
                   </div>
                   <div className={styles.info_group_right}>
-                    <span>Bought By</span>
-                    <span>{orderDetails.user.name}</span>
+                    <span>Posted By</span>
+                    <span>You</span>
                   </div>
                 </div>
                 <div className={styles.info_group}>
@@ -156,24 +116,66 @@ const MyItem = (props) => {
                   <div className={styles.info_group_right}>
                     <span>On</span>
                     <span>
-                      {new Date(orderDetails.createdAt).getDate() +
+                      {new Date(myItemData.createdAt).getDate() +
                         "-" +
-                        new Date(orderDetails.createdAt).getMonth() +
+                        new Date(myItemData.createdAt).getMonth() +
                         "-" +
-                        new Date(orderDetails.createdAt).getFullYear() +
+                        new Date(myItemData.createdAt).getFullYear() +
                         " at " +
-                        new Date(orderDetails.createdAt).getHours() +
+                        new Date(myItemData.createdAt).getHours() +
                         ":" +
-                        new Date(orderDetails.createdAt).getMinutes()}
+                        new Date(myItemData.createdAt).getMinutes()}
                     </span>
                   </div>
                 </div>
               </div>
-            )}
+              {orderDetails && (
+                <div className={styles.row2}>
+                  {/* <div className={styles.info_group}>Product</div> */}
+                  <div className={styles.info_group}>
+                    <div className={styles.info_group_left}>
+                      <img src="/account1.png"></img>
+                    </div>
+                    <div className={styles.info_group_right}>
+                      <span>Bought By</span>
+                      <span>{orderDetails.user.name}</span>
+                    </div>
+                  </div>
+                  <div className={styles.info_group}>
+                    <div className={styles.info_group_left}>
+                      <img src="/location.png"></img>
+                    </div>
+                    <div className={styles.info_group_right}>
+                      <span>Location</span>
+                      <span>{myItemData.address}</span>
+                    </div>
+                  </div>
+                  <div className={styles.info_group}>
+                    <div className={styles.info_group_left}>
+                      <img src="/calendar.png"></img>
+                    </div>
+                    <div className={styles.info_group_right}>
+                      <span>On</span>
+                      <span>
+                        {new Date(orderDetails.createdAt).getDate() +
+                          "-" +
+                          new Date(orderDetails.createdAt).getMonth() +
+                          "-" +
+                          new Date(orderDetails.createdAt).getFullYear() +
+                          " at " +
+                          new Date(orderDetails.createdAt).getHours() +
+                          ":" +
+                          new Date(orderDetails.createdAt).getMinutes()}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };
 
