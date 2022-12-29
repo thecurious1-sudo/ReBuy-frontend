@@ -31,7 +31,11 @@ const MyItems = () => {
         <h1>Your Items</h1>
       </div>
       {httpRequest.loading && <Loader />}
-      {myItems.length === 0 && <h1>You haven't posted any items yet!</h1>}
+      {myItems.length === 0 && (
+        <h1>
+          You haven't posted any items yet! Use the Sell button to post an item.
+        </h1>
+      )}
       {myItems.map((myItem) => {
         return (
           <MyItem
